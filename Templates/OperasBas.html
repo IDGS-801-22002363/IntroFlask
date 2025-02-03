@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block container %}
+<h1>Calcular</h1>
+
+<form action="/resultado" method="post">
+    <label>N1:</label>
+    <input type="number" name="n1"><br>
+    <label>N2:</label>
+    <input type="number" name="n2"><br>
+    <input type="submit" value="Calcular" class="btn btn-primary">
+</form>
+{% endblock %}

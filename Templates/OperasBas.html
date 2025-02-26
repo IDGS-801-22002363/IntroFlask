@@ -1,13 +1,41 @@
 {% extends "layout.html" %}
 
 {% block container %}
-<h1>Calcular</h1>
+<div class="calculator-container" style="display: flex; gap: 2rem;">
+    <div class="calculator-form" style="flex: 1;">
+        <h1>Calculadora Básica</h1>
 
-<form action="/resultado" method="post">
-    <label>N1:</label>
-    <input type="number" name="n1"><br>
-    <label>N2:</label>
-    <input type="number" name="n2"><br>
-    <input type="submit" value="Calcular" class="btn btn-primary">
-</form>
+        <form action="/OperasBas" method="post">
+            <label>Número 1:</label>
+            <input type="number" name="n1"><br><br>
+
+            <label>Número 2:</label>
+            <input type="number" name="n2"><br><br>
+
+            <div>
+                <input type="radio" name="operacion" value="suma" checked>
+                <label>Suma</label><br>
+
+                <input type="radio" name="operacion" value="resta">
+                <label>Resta</label><br>
+
+                <input type="radio" name="operacion" value="multiplicacion">
+                <label>Multiplicación</label><br>
+
+                <input type="radio" name="operacion" value="division">
+                <label>División</label><br>
+            </div>
+
+            <br>
+            <input type="submit" value="Calcular">
+        </form>
+    </div>
+
+    {% if resultado %}
+    <aside >
+        <h3>Resultado</h3>
+        <p>El resultado es: {{ resultado }}</p>
+    </aside>
+    {% endif %}
+</div>
 {% endblock %}

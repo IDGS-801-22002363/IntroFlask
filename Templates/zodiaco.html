@@ -11,38 +11,39 @@
     <h2 class="text-center">Calculadora de Zodiaco Chino</h2>
 
     <form method="POST" class="border p-4 shadow rounded">
+        {{ form.hidden_tag() }}  
+
         <div class="mb-3">
-            <label class="form-label">Nombre:</label>
-            <input type="text" name="nombre" class="form-control" required>
+            <label class="form-label">{{ form.nombre.label }}</label>
+            {{ form.nombre(class="form-control", required="required") }}
         </div>
         <div class="mb-3">
-            <label class="form-label">Apellido Paterno:</label>
-            <input type="text" name="apellido_paterno" class="form-control" required>
+            <label class="form-label">{{ form.apellido_paterno.label }}</label>
+            {{ form.apellido_paterno(class="form-control", required="required") }}
         </div>
         <div class="mb-3">
-            <label class="form-label">Apellido Materno:</label>
-            <input type="text" name="apellido_materno" class="form-control" required>
+            <label class="form-label">{{ form.apellido_materno.label }}</label>
+            {{ form.apellido_materno(class="form-control", required="required") }}
         </div>
         <div class="row">
             <div class="col-md-4">
-                <label class="form-label">Día:</label>
-                <input type="number" name="dia" class="form-control" required min="1" max="31">
+                <label class="form-label">{{ form.dia.label }}</label>
+                {{ form.dia(class="form-control", required="required") }}
             </div>
             <div class="col-md-4">
-                <label class="form-label">Mes:</label>
-                <input type="number" name="mes" class="form-control" required min="1" max="12">
+                <label class="form-label">{{ form.mes.label }}</label>
+                {{ form.mes(class="form-control", required="required") }}
             </div>
             <div class="col-md-4">
-                <label class="form-label">Año:</label>
-                <input type="number" name="anio" class="form-control" required min="1900" max="2025">
+                <label class="form-label">{{ form.anio.label }}</label>
+                {{ form.anio(class="form-control", required="required") }}
             </div>
         </div>
         <div class="mt-3">
-            <label class="form-label">Sexo:</label><br>
-            <input type="radio" name="sexo" value="M" required> Masculino
-            <input type="radio" name="sexo" value="F" required> Femenino
+            <label class="form-label">{{ form.sexo.label }}</label><br>
+            {{ form.sexo }}
         </div>
-        <button type="submit" class="btn btn-primary mt-3">IMPRIMIR</button>
+        <button type="submit" class="btn btn-primary mt-3">{{ form.submit.label }}</button>
     </form>
 
     {% if resultado %}

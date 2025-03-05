@@ -1,0 +1,14 @@
+{% macro render_zodiaco(field) %}
+<div class="form-group">
+    <label for="{{ field.id }}" >{{ field.label.text }}</label>
+    {{ field(class="form-control p-3") }}
+    
+    {% if field.errors %}
+    <ul class="errors">
+        {% for error in field.errors %}
+        <li style="color: red;">{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+{% endmacro %}
